@@ -1,0 +1,8 @@
+# Blockchain Proof of Work Implementation Requirements
+# No external dependencies required - uses only Python standard library
+
+# Optional dependencies for enhanced functionality:
+# cryptography>=3.4.8  # For enhanced cryptographic functions
+# requests>=2.25.1     # For network communication (if implementing P2P)
+# flask>=2.0.1         # For web API (if implementing REST API)
+# pytest>=6.0.0        # For testing

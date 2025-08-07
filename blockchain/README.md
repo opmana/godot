@@ -2,11 +2,7 @@
 
 A complete and functional Proof of Work (PoW) blockchain implementation in Python. This implementation includes all the core features of a blockchain system with a focus on educational clarity and practical usability.
 
-[![Python 3.7+](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-
-## 🚀 Features
+## Features
 
 ### Core Blockchain Features
 - **Proof of Work Consensus**: Mining blocks with configurable difficulty
@@ -23,50 +19,38 @@ A complete and functional Proof of Work (PoW) blockchain implementation in Pytho
 - **Mining Rewards**: Built-in mining reward system
 - **Configurable Difficulty**: Adjustable mining difficulty levels
 
-## 📦 Installation
+## Architecture
 
-### From Source
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/pow-blockchain.git
-cd pow-blockchain
+### Block Structure
+Each block contains:
+- **Index**: Position in the blockchain
+- **Timestamp**: When the block was created
+- **Transactions**: List of transaction data
+- **Previous Hash**: Hash of the previous block
+- **Nonce**: Number used in proof of work
+- **Hash**: SHA-256 hash of the block
 
-# Install in development mode
-pip install -e .
+### Transaction Structure
+Each transaction contains:
+- **Sender**: Address of the sender
+- **Recipient**: Address of the recipient
+- **Amount**: Transaction amount
+- **Data**: Optional transaction data
+- **Timestamp**: When the transaction was created
 
-# Or install with development dependencies
-pip install -e ".[dev]"
-```
+## Installation
 
-### Direct Usage
 No external dependencies required! This implementation uses only Python standard library modules.
 
 ```bash
-# Navigate to the project directory
-cd pow-blockchain
+# Clone or download the blockchain directory
+cd blockchain
 
 # Run the demo
-python examples/demo.py
+python demo.py
 ```
 
-## 🏗️ Project Structure
-
-```
-pow-blockchain/
-├── src/
-│   └── blockchain/
-│       ├── __init__.py      # Package initialization
-│       ├── block.py         # Block class implementation
-│       └── blockchain.py    # Main blockchain class
-├── examples/
-│   └── demo.py             # Comprehensive demo script
-├── tests/                  # Test files (to be added)
-├── requirements.txt        # Dependencies
-├── setup.py              # Package setup
-└── README.md             # This file
-```
-
-## 🎯 Quick Start
+## Usage
 
 ### Basic Usage
 
@@ -107,12 +91,12 @@ alice_history = blockchain.get_transaction_history("Alice")
 block = blockchain.get_block_by_index(1)
 ```
 
-## 🎮 Demo Script
+## Demo Script
 
-The included demo script demonstrates all features:
+The included `demo.py` script demonstrates all features:
 
 ```bash
-python examples/demo.py
+python demo.py
 ```
 
 The demo covers:
@@ -123,7 +107,7 @@ The demo covers:
 5. **Persistence**: Saving and loading blockchain data
 6. **Transaction History**: Retrieving transaction history
 
-## 📚 API Reference
+## API Reference
 
 ### Blockchain Class
 
@@ -155,7 +139,7 @@ Block(index, transactions, timestamp=None, previous_hash="0", nonce=0)
 - `to_dict()`: Convert to dictionary
 - `from_dict(data)`: Create from dictionary
 
-## 🔧 Proof of Work Algorithm
+## Proof of Work Algorithm
 
 The implementation uses a simple but effective PoW algorithm:
 
@@ -169,7 +153,7 @@ Example with difficulty 4:
 - Valid hash: "0000a1b2c3d4e5f6..."
 - Invalid hash: "0001a2b3c4d5e6f7..."
 
-## 🔒 Security Features
+## Security Features
 
 ### Tampering Detection
 The blockchain automatically detects tampering by:
@@ -182,7 +166,7 @@ The blockchain automatically detects tampering by:
 - Changing any block invalidates all subsequent blocks
 - Previous hash linking prevents insertion of fake blocks
 
-## ⚡ Performance Considerations
+## Performance Considerations
 
 ### Mining Performance
 - Higher difficulty = longer mining time
@@ -194,65 +178,7 @@ The blockchain automatically detects tampering by:
 - Consider database storage for large chains
 - Transaction history can be memory-intensive
 
-## 🧪 Testing
-
-Run the demo script to test all functionality:
-
-```bash
-python examples/demo.py
-```
-
-The demo will test:
-- Block creation and mining
-- Transaction processing
-- Chain validation
-- Persistence
-- Error handling
-
-## 🚀 Development
-
-### Setting up Development Environment
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/pow-blockchain.git
-cd pow-blockchain
-
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install development dependencies
-pip install -e ".[dev]"
-```
-
-### Running Tests
-
-```bash
-# Run all tests
-pytest
-
-# Run with coverage
-pytest --cov=blockchain
-
-# Run specific test file
-pytest tests/test_blockchain.py
-```
-
-### Code Quality
-
-```bash
-# Format code
-black src/ tests/ examples/
-
-# Lint code
-flake8 src/ tests/ examples/
-
-# Type checking
-mypy src/
-```
-
-## 🔮 Extending the Implementation
+## Extending the Implementation
 
 ### Possible Enhancements
 1. **Network Layer**: Add P2P networking
@@ -269,22 +195,35 @@ The modular design makes it easy to extend:
 - Add block rewards or fees
 - Create custom validation rules
 
-## 🤝 Contributing
+## Testing
 
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+Run the demo script to test all functionality:
 
-### Areas for Improvement
+```bash
+python demo.py
+```
+
+The demo will test:
+- Block creation and mining
+- Transaction processing
+- Chain validation
+- Persistence
+- Error handling
+
+## License
+
+This implementation is provided for educational purposes. Feel free to use, modify, and extend as needed.
+
+## Contributing
+
+Contributions are welcome! Areas for improvement:
 - Performance optimizations
 - Additional security features
 - Network layer implementation
 - Web interface
 - Documentation improvements
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
@@ -298,7 +237,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Limit transaction count per block for large demos
 - Consider clearing old blocks for long-running systems
 
-## 📖 Educational Value
+## Educational Value
 
 This implementation is designed to be:
 - **Readable**: Clear, well-documented code
@@ -307,13 +246,3 @@ This implementation is designed to be:
 - **Extensible**: Easy to modify and extend
 
 Perfect for learning blockchain concepts, prototyping ideas, or as a foundation for more complex systems.
-
-## 🙏 Acknowledgments
-
-- Inspired by Bitcoin's Proof of Work consensus mechanism
-- Built for educational purposes and learning blockchain technology
-- Uses Python standard library for maximum compatibility
-
----
-
-**Note**: This is an educational implementation. For production use, consider established blockchain frameworks and libraries.
